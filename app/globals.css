@@ -1,26 +1,69 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f7faf7;
+  --foreground: #122016;
+  --brand-green: #14532d;
+  --brand-green-deep: #0b3d24;
+  --brand-green-mid: #1b6b45;
+  --brand-teal: #0f766e;
+  --brand-orange: #ea6a12;
+  --brand-saffron: #d97706;
+  --brand-cream: #eef6f0;
+  --muted: #4b5c52;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-brand-green: var(--brand-green);
+  --color-brand-green-deep: var(--brand-green-deep);
+  --color-brand-green-mid: var(--brand-green-mid);
+  --color-brand-teal: var(--brand-teal);
+  --color-brand-orange: var(--brand-orange);
+  --color-brand-saffron: var(--brand-saffron);
+  --color-brand-cream: var(--brand-cream);
+  --color-muted: var(--muted);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display), Georgia, serif;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+p,
+li {
+  text-wrap: pretty;
+}
+
+img {
+  max-width: 100%;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--brand-green) 25%, white);
+}
+
+input,
+textarea,
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
 }
