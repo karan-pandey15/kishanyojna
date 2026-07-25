@@ -150,7 +150,13 @@ export default function HomePage() {
       </section>
 
       <section className="relative isolate overflow-hidden py-12 sm:py-16 md:py-20">
-        <Image src="/images/four.jpeg" alt="" fill className="object-cover" sizes="100vw" />
+        <Image
+          src="/images/four.jpeg"
+          alt="Elder care and community welfare outreach"
+          fill
+          className="object-cover"
+          sizes="100vw"
+        />
         <div className="absolute inset-0 bg-brand-teal/88" />
         <Container className="relative z-10 max-w-5xl">
           <SectionHeading
@@ -264,11 +270,11 @@ export default function HomePage() {
 
       <CtaBanner
         title="Support Our Mission"
-        body="Your contribution helps children, farmers, and elders. For bank account verification and CERT audit documentation, visit our compliance page."
+        body="Your contribution helps children, farmers, and elders. Contact our office for verified payment instructions."
         primaryHref="/donate"
         primaryLabel="Donate Now"
-        secondaryHref="/compliance"
-        secondaryLabel="CERT Audit Info"
+        secondaryHref="/contact"
+        secondaryLabel="Contact Us"
       />
     </>
   );

@@ -39,11 +39,6 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="/compliance" className="hover:text-brand-saffron">
-                CERT Audit / Bank Compliance
-              </Link>
-            </li>
-            <li>
               <Link href="/donate" className="hover:text-brand-saffron">
                 Donate
               </Link>

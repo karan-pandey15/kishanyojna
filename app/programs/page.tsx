@@ -3,12 +3,13 @@ import Image from "next/image";
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import { Container, CtaBanner, SectionHeading } from "@/components/ui";
-import { focusAreas, howWeWork, whatWeDo } from "@/lib/site";
+import { focusAreas, howWeWork, site, whatWeDo } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Our Work",
   description:
     "Explore our programmes: child welfare, education, health, sports, farmers' social rights, and old-age welfare.",
+  alternates: { canonical: `${site.url}/programs` },
 };
 
 export default function ProgramsPage() {

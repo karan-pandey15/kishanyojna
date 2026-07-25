@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ContactForm from "@/components/forms/ContactForm";
 import PageHero from "@/components/PageHero";
 import { Container, SectionHeading } from "@/components/ui";
 import { faqs, focusAreas, site } from "@/lib/site";
@@ -6,6 +7,14 @@ import { faqs, focusAreas, site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Contact Us",
   description: `Contact ${site.name} central office in Mainpuri, Uttar Pradesh.`,
+  alternates: {
+    canonical: `${site.url}/contact`,
+  },
+  openGraph: {
+    title: `Contact Us | ${site.shortName}`,
+    description: `Contact ${site.name} central office in Mainpuri, Uttar Pradesh.`,
+    url: `${site.url}/contact`,
+  },
 };
 
 export default function ContactPage() {
@@ -15,6 +24,7 @@ export default function ContactPage() {
         title="Contact Us"
         subtitle="Reach our central office for programmes, donations, and bank verification queries"
         image="/images/two.jpeg"
+        alt="Community health and outreach"
       />
 
       <section className="bg-white py-12 sm:py-16 md:py-20">
@@ -48,19 +58,19 @@ export default function ContactPage() {
               </h3>
               <div className="mt-3 space-y-2 text-sm text-muted">
                 <a
-                  className="block rounded-lg bg-brand-cream/70 px-3 py-2 hover:text-brand-orange"
+                  className="block rounded-lg bg-brand-cream/70 px-3 py-2 hover:text-brand-orange focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-orange"
                   href={`tel:+91${site.phones[0]}`}
                 >
                   +91 {site.phones[0]}
                 </a>
                 <a
-                  className="block rounded-lg bg-brand-cream/70 px-3 py-2 hover:text-brand-orange"
+                  className="block rounded-lg bg-brand-cream/70 px-3 py-2 hover:text-brand-orange focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-orange"
                   href={`tel:+91${site.phones[1]}`}
                 >
                   +91 {site.phones[1]}
                 </a>
                 <a
-                  className="block break-all rounded-lg bg-brand-cream/70 px-3 py-2 text-brand-teal underline"
+                  className="block break-all rounded-lg bg-brand-cream/70 px-3 py-2 text-brand-teal underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-orange"
                   href={`mailto:${site.email}`}
                 >
                   {site.email}
@@ -87,53 +97,10 @@ export default function ContactPage() {
               Send a Message
             </h2>
             <p className="mt-2 text-sm text-muted">
-              For bank / CERT audit documentation requests, mention
+              For bank documentation requests, mention
               &quot;Bank Verification&quot; in your subject.
             </p>
-            <form
-              className="mt-6 space-y-4"
-              action={`mailto:${site.email}`}
-              method="post"
-              encType="text/plain"
-            >
-              {[
-                { id: "name", label: "Full Name", type: "text", required: true },
-                { id: "email", label: "Email", type: "email", required: true },
-                { id: "phone", label: "Phone", type: "tel", required: false },
-                { id: "subject", label: "Subject", type: "text", required: false },
-              ].map((field) => (
-                <div key={field.id}>
-                  <label htmlFor={field.id} className="mb-1 block text-sm font-semibold">
-                    {field.label}
-                  </label>
-                  <input
-                    id={field.id}
-                    name={field.id}
-                    type={field.type}
-                    required={field.required}
-                    className="w-full rounded-lg border border-brand-green/20 bg-white px-4 py-3 text-sm outline-none ring-brand-orange focus:ring-2"
-                  />
-                </div>
-              ))}
-              <div>
-                <label htmlFor="message" className="mb-1 block text-sm font-semibold">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={5}
-                  required
-                  className="w-full rounded-lg border border-brand-green/20 bg-white px-4 py-3 text-sm outline-none ring-brand-orange focus:ring-2"
-                />
-              </div>
-              <button
-                type="submit"
-                className="w-full rounded-full bg-brand-orange px-6 py-3.5 text-sm font-bold uppercase tracking-wide text-white hover:bg-[#d45f0b]"
-              >
-                Submit Enquiry
-              </button>
-            </form>
+            <ContactForm />
           </div>
         </Container>
       </section>

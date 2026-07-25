@@ -21,7 +21,6 @@ const primaryLinks = [
 
 const secondaryLinks = [
   { href: "/news", label: "News & Events" },
-  { href: "/compliance", label: "CERT Audit" },
   { href: "/donate", label: "Donate" },
 ] as const;
 
@@ -41,10 +40,13 @@ function linkClass(active: boolean) {
 export default function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [menuPath, setMenuPath] = useState(pathname);
 
-  useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
+  // Close drawer when the route changes (React-recommended render adjustment)
+  if (menuPath !== pathname) {
+    setMenuPath(pathname);
+    if (open) setOpen(false);
+  }
 
   useEffect(() => {
     if (!open) return;
@@ -106,11 +108,7 @@ export default function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`${linkClass(isActive(pathname, link.href))} ${
-                    link.href === "/news"
-                      ? "rounded border border-foreground/80 px-2 py-0.5"
-                      : ""
-                  }`}
+                  className={linkClass(isActive(pathname, link.href))}
                 >
                   {link.label}
                 </Link>
@@ -155,6 +153,8 @@ export default function Header() {
       {/* Right sidebar drawer */}
       <aside
         id="mobile-sidebar"
+        role="dialog"
+        aria-modal={open}
         className={`fixed top-0 right-0 z-70 flex h-full w-[min(88vw,320px)] flex-col bg-white shadow-2xl transition-transform duration-300 ease-out lg:hidden ${
           open ? "translate-x-0" : "translate-x-full"
         }`}

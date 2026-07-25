@@ -4,7 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import PageHero from "@/components/PageHero";
 import { Container, CtaBanner, SectionHeading } from "@/components/ui";
-import { focusAreas } from "@/lib/site";
+import { focusAreas, site } from "@/lib/site";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -21,6 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: area.title,
     description: area.description,
+    alternates: { canonical: `${site.url}/programs/${area.slug}` },
   };
 }
 

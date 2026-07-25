@@ -8,6 +8,7 @@ import { donationImpacts, faqs, focusAreas, site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Donate Now",
   description: `Support ${site.name} programmes for children, farmers, and elders.`,
+  alternates: { canonical: `${site.url}/donate` },
 };
 
 export default function DonatePage() {
@@ -48,10 +49,10 @@ export default function DonatePage() {
               ))}
             </ul>
             <Link
-              href="/compliance"
+              href="/donate"
               className="mt-6 inline-block text-sm font-bold uppercase tracking-wide text-brand-teal hover:underline"
             >
-              View CERT Audit &amp; compliance page →
+              View donation details →
             </Link>
           </div>
 
@@ -71,11 +72,11 @@ export default function DonatePage() {
               <div className="rounded-lg bg-white p-4">
                 <dt className="font-semibold text-brand-green">Bank / IFSC / A/C No.</dt>
                 <dd className="mt-1 text-muted">
-                  To be published after bank approval — see{" "}
-                  <Link href="/compliance" className="text-brand-orange underline">
-                    CERT Audit page
-                  </Link>
-                  .
+                  To be published after bank approval —{" "}
+                  <Link href="/contact" className="text-brand-orange underline">
+                    contact the office
+                  </Link>{" "}
+                  for verified instructions.
                 </dd>
               </div>
               <div className="rounded-lg bg-white p-4">
@@ -149,7 +150,7 @@ export default function DonatePage() {
               </li>
               <li className="flex gap-3">
                 <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-brand-green" />
-                CERT Audit page prepared for institutional / bank review
+                Contact office for institutional / bank verification support
               </li>
               <li className="flex gap-3">
                 <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-brand-green" />
@@ -187,8 +188,8 @@ export default function DonatePage() {
         body="Call or email the central office for verified payment instructions and receipts."
         primaryHref="/contact"
         primaryLabel="Contact Us"
-        secondaryHref="/compliance"
-        secondaryLabel="CERT Audit"
+        secondaryHref="/about"
+        secondaryLabel="About Us"
       />
     </>
   );

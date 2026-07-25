@@ -1,3 +1,7 @@
+/**
+ * Public site constants only — never put API keys, DB URLs, or secrets here.
+ * `url` may be overridden by NEXT_PUBLIC_SITE_URL (public by design).
+ */
 export const site = {
   name: "Bhartiya Kisan Union (Umakanth)",
   shortName: "BKU Umakanth",
@@ -5,6 +9,10 @@ export const site = {
   hindiName: "भारतीय किसान यूनियन (उमाकान्त)",
   description:
     "A social welfare organisation working for child welfare, child education, child health, children's sports, farmers' social rights, and old-age people welfare.",
+  /** Canonical origin for sitemap / Open Graph — set NEXT_PUBLIC_SITE_URL in production. */
+  url:
+    process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
+    "https://www.bhartiyakisanunionumakanth.org",
   president: "Swami Umakanth Maharaj ji (Shri Umakanth Nunhaira)",
   presidentTitle: "National President",
   email: "bhartiyakisanunion.umakanth@gmail.com",
@@ -147,7 +155,7 @@ export const values = [
   },
   {
     title: "Transparency",
-    body: "Public contact details, programme clarity, and CERT/bank compliance information are published openly.",
+    body: "Public contact details and programme clarity are published openly.",
   },
   {
     title: "Community",
@@ -178,7 +186,7 @@ export const howWeWork = [
   {
     step: "04",
     title: "Stay Accountable",
-    body: "We keep communication open for donors, banks, and the public through our compliance pages.",
+    body: "We keep communication open for donors, banks, and the public through our contact and donate pages.",
   },
 ] as const;
 
@@ -212,7 +220,7 @@ export const faqs = [
   },
   {
     q: "How can I donate safely?",
-    a: "Use only the official organisation bank account published on the Donate / CERT Audit pages after bank approval, or contact the office for verified instructions.",
+    a: "Use only the official organisation bank account published on the Donate page after bank approval, or contact the office for verified instructions.",
   },
   {
     q: "Who leads the organisation?",

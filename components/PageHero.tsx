@@ -11,13 +11,13 @@ export default function PageHero({
   title,
   subtitle,
   image,
-  alt = "",
+  alt,
 }: PageHeroProps) {
   return (
     <section className="relative isolate flex min-h-[32vh] items-center justify-center overflow-hidden sm:min-h-[38vh] md:min-h-[44vh]">
       <Image
         src={image}
-        alt={alt || title}
+        alt={alt?.trim() ? alt : title}
         fill
         priority
         className="object-cover"

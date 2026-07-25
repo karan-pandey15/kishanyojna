@@ -6,7 +6,11 @@ type LogoProps = {
 
 export default function Logo({ compact = false }: LogoProps) {
   return (
-    <Link href="/" className="group flex min-w-0 items-center gap-2 no-underline sm:gap-3">
+    <Link
+      href="/"
+      aria-label="Bhartiya Kisan Union (Umakanth) — Home"
+      className="group flex min-w-0 items-center gap-2 no-underline sm:gap-3"
+    >
       <div
         className={`relative shrink-0 overflow-hidden rounded-full border-[3px] border-brand-saffron bg-brand-green-deep shadow-md ${
           compact ? "h-11 w-11" : "h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16"

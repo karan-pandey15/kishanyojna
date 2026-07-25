@@ -8,6 +8,7 @@ import { newsEvents, site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "News & Events",
   description: `Latest community programmes and events from ${site.name}.`,
+  alternates: { canonical: `${site.url}/news` },
 };
 
 export default function NewsPage() {

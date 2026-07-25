@@ -6,6 +6,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Terms of Use",
   description: `Terms of Use for the official website of ${site.name}.`,
+  alternates: { canonical: `${site.url}/terms` },
 };
 
 export default function TermsPage() {
@@ -26,7 +27,7 @@ export default function TermsPage() {
           <p className="-mt-4 leading-relaxed">
             This website is operated by {site.name} for public information,
             programme awareness, and legitimate organisational communication
-            including bank / CERT compliance transparency.
+            including donation and organisational transparency.
           </p>
 
           <div>
@@ -46,7 +47,7 @@ export default function TermsPage() {
             </h2>
             <p className="mt-3 leading-relaxed">
               Donations should be made only to the official organisation bank
-              account published on the Donate / CERT Audit pages. The organisation
+              account published on the Donate page. The organisation
               is not responsible for payments made to unofficial accounts. Always
               request a receipt and verify account details with the central office
               if unsure.

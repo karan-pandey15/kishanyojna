@@ -8,6 +8,7 @@ import { focusAreas, howWeWork, site, values } from "@/lib/site";
 export const metadata: Metadata = {
   title: "About Us",
   description: `Learn about ${site.name}, our mission, leadership, and focus areas.`,
+  alternates: { canonical: `${site.url}/about` },
 };
 
 export default function AboutPage() {
@@ -81,7 +82,13 @@ export default function AboutPage() {
       </section>
 
       <section className="relative isolate overflow-hidden py-12 sm:py-16 md:py-20">
-        <Image src="/images/one.jpeg" alt="" fill className="object-cover" sizes="100vw" />
+        <Image
+          src="/images/one.jpeg"
+          alt="Children and volunteers during community outreach"
+          fill
+          className="object-cover"
+          sizes="100vw"
+        />
         <div className="absolute inset-0 bg-brand-teal/90" />
         <Container className="relative z-10 max-w-5xl">
           <SectionHeading light title="Our Core Focus Areas" />
@@ -160,10 +167,10 @@ export default function AboutPage() {
               ))}
             </ul>
             <Link
-              href="/compliance"
+              href="/donate"
               className="mt-5 inline-block text-sm font-bold uppercase tracking-wide text-brand-orange hover:underline"
             >
-              View CERT Audit / Bank documents →
+              Support our work →
             </Link>
           </div>
         </Container>
